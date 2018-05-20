@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('barcode');
             $table->string('name');
+            $table->string('slug');
             $table->integer('qty');
             $table->integer('qty_limit');
             $table->double('costs');
@@ -25,8 +26,7 @@ class CreateProductsTable extends Migration
             $table->integer('unit_id');
             $table->string('input');
             $table->string('detail');
-            $table->integer('user_id');
-            $table->integer('group_id');
+            $table->string('group_id');
             $table->integer('create_id');
             $table->integer('update_id')->nullable();
             $table->string('image');

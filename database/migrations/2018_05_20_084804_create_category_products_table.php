@@ -17,7 +17,7 @@ class CreateCategoryProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
-            $table->integer('group_id');
+            $table->string('group_id');
             $table->integer('create_id');
             $table->integer('update_id')->nullable();
             $table->timestamps();
