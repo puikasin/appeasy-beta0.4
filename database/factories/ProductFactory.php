@@ -8,7 +8,7 @@ use App\Model\UnitProduct;
 $factory->define(App\Model\Product::class, function (Faker $faker) {
     $word = $faker->word;
     return [
-        'barcode' => str_random(20),
+        'barcode' => mt_rand(1000000, 9999999),
         'name' => $word,
         'slug' => str_slug($word),
         'qty' => 50,
