@@ -16,27 +16,27 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return  QuestionResource::collection(Question::latest()->get());
+        return QuestionResource::collection(Question::latest()->get());
     }
 
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
 //        auth()->user()->question()->create($request->all());
         Question::create($request->all());
-        return response('Created',Response::HTTP_CREATED);
+        return response('Created', Response::HTTP_CREATED);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Question  $question
+     * @param  \App\Model\Question $question
      * @return \Illuminate\Http\Response
      */
     public function show(Question $question)
@@ -45,28 +45,28 @@ class QuestionController extends Controller
     }
 
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Question  $question
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Model\Question $question
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $question->update($request->all());
+        return response('Updated',Response::HTTP_CREATED);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Question  $question
+     * @param  \App\Model\Question $question
      * @return \Illuminate\Http\Response
      */
     public function destroy(Question $question)
     {
         $question->delete();
-        return response(null,Response::HTTP_NO_CONTENT);
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }
