@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\QuestionResource;
 use App\Model\Question;
+use App\Model\Reply;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Request;
 
@@ -64,7 +65,7 @@ class QuestionController extends Controller
      * @param  \App\Model\Question $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $question)
+    public function destroy(Question $question )
     {
         $question->delete();
         return response(null, Response::HTTP_NO_CONTENT);
